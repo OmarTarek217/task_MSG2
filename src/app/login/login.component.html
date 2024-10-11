@@ -1,0 +1,33 @@
+<section class="d-flex justify-content-center align-items-center vh-100">
+    <form class="login container shadow rounded p-4 bg-white" action="" [formGroup]="loginForm">
+        <img class="logo d-block mx-auto mb-3" src="assets/logo.png" alt="logo">
+        <h2 class="text-center loginword mb-4">Login</h2>
+        <!-- ============================================EMAIL================================================== -->
+        <label for="email" class="mb-2">Email <span class="star text-danger">*</span></label>
+        <input id="email" class="form-control mb-3 py-2" type="email" placeholder="Enter Your Email" required
+            formControlName="email">
+        <div *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched">
+            <p *ngIf="loginForm.get('email')?.getError('required')" style="color: red; font-weight: 600;">Email is
+                required.</p>
+        </div>
+        <p *ngIf="loginForm.get('email')?.getError('pattern')" style="color: red; font-weight: 600;">Invaild
+            Email.</p>
+        <!-- ==================================================================================================== -->
+        <!-- ============================================PASSWORD================================================ -->
+        <label for="password" class="mb-2">Password <span class="star text-danger">*</span></label>
+        <input id="password" class="form-control mb-4 py-2" type="password" placeholder="Enter Your Password" required
+            formControlName="password">
+        <div *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched">
+            <p *ngIf="loginForm.get('password')?.getError('required')" style="color: red; font-weight: 600;">Password is
+                required.</p>
+        </div>
+        <p *ngIf="loginForm.get('password')?.getError('minlength')" style="color: red; font-weight: 600;">Minlength is
+            8.
+        </p>
+        <!-- ==================================================================================================== -->
+            <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary w-100 mb-3 py-2" (click)="handlelogin(loginForm)">Login</button>
+            <p class="text-center">Don't have an account?
+                <a class="register-link" routerLink="/signup">Register</a>
+            </p>
+    </form>
+</section>

@@ -1,0 +1,50 @@
+:host {
+    display: block;
+    background-color: rgba(128, 128, 128, 0.212); 
+}
+
+.register-link {
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+    color: rgb(0, 115, 255); 
+    font-weight: bold; 
+    text-decoration: underline;
+}
+
+.register-link:hover {
+    color: #2100fb; 
+    text-decoration: underline; 
+}
+
+.login {
+    max-width: 40rem;
+    border-radius: 10px;
+}
+
+.logo {
+    width: 90px;
+}
+
+.star {
+    color: red;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+form {
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.form-control {
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+h2.loginword {
+    color: blue;
+}
+
