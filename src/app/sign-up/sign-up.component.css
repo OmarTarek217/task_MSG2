@@ -1,0 +1,64 @@
+:host {
+    display: block;
+    background-color: rgba(128, 128, 128, 0.212);
+    overflow: hidden;
+}
+
+.container {
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.logo {
+    width: 80px;
+}
+
+.text-primary {
+    color: blue !important;
+}
+
+.form-control {
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.row {
+    flex-wrap: wrap;
+}
+
+.col-md-6 {
+    flex: 0 0 48%;
+    max-width: 48%;
+    margin-right: 2%;
+}
+
+.col-md-6:last-child {
+    margin-right: 0;
+}
+
+button[disabled] {
+    background-color: #007bff;
+    cursor: not-allowed;
+}
+
+.login {
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+    color: rgb(0, 115, 255);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.login:hover {
+    color: #2100fb;
+}
+
+@media (max-width: 768px) {
+    .col-md-6 {
+        flex: 0 0 100%;
+        max-width: 100%; 
+        margin-right: 0;
+    }
+}
