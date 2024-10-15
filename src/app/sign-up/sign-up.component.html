@@ -1,142 +1,107 @@
 <div class="d-flex justify-content-center align-items-center vh-100">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card shadow-sm p-4 bg-white rounded-3">
-                    <div class="text-center mb-4">
-                        <img src="assets/logo.png" alt="Logo" class="logo mb-3">
-                        <h2 class="text-primary">Register</h2>
-                    </div>
-                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-                        <div class="row">
-                            <!-- ============================================FIRST NAME================================================== -->
-                            <div class="col-md-6 mb-3">
-                                <label for="firstName" class="form-label">First Name <span
-                                        class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="firstName" formControlName="firstName"
-                                    placeholder="Enter Your First Name" required>
-                                <div
-                                    *ngIf="registerForm.get('firstName')?.errors && registerForm.get('firstName')?.touched">
-                                    <p *ngIf="registerForm.get('firstName')?.getError('required')"
-                                        style="color: red; font-weight: 400;">First Name is required.</p>
-                                </div>
-                                <p *ngIf="registerForm.get('firstName')?.getError('pattern')"
-                                    style="color: red; font-weight: 400;">Names can't have digits</p>
-                            </div>
-
-                            <!-- ============================================LAST NAME================================================== -->
-                            <div class="col-md-6 mb-3">
-                                <label for="lastName" class="form-label">Last Name <span
-                                        class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="lastName" formControlName="lastName"
-                                    placeholder="Enter Your Last Name" required>
-                                <div
-                                    *ngIf="registerForm.get('lastName')?.errors && registerForm.get('lastName')?.touched">
-                                    <p *ngIf="registerForm.get('lastName')?.getError('required')"
-                                        style="color: red; font-weight: 400;">Last Name is required.</p>
-                                </div>
-                                <p *ngIf="registerForm.get('lastName')?.getError('pattern')"
-                                    style="color: red; font-weight: 400;">Names can't have digits</p>
-                            </div>
-                        </div>
-
-                        <!-- ============================================EMAIL================================================== -->
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                            <input type="email" class="form-control" id="email" formControlName="email"
-                                placeholder="Enter Your Email" required>
-                            <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched">
-                                <p *ngIf="registerForm.get('email')?.getError('required')"
-                                    style="color: red; font-weight: 400;">Email is required.</p>
-                            </div>
-                            <p *ngIf="registerForm.get('email')?.getError('pattern')"
-                                style="color: red; font-weight: 400;">Invalid Email.</p>
-                        </div>
-                        <!-- ============================================PASSWORD================================================== -->
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="password" class="mb-2">Password <span
-                                        class="star text-danger">*</span></label>
-                                <input id="password" class="form-control mb-1 py-2" type="password"
-                                    placeholder="Enter Your Password" required formControlName="password">
-                                <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched"
-                                    style="margin-top: 0;">
-                                    <p *ngIf="registerForm.get('password')?.getError('required')"
-                                        style="color: red; font-weight: 400; margin-bottom: 0;">Password is required.
-                                    </p>
-                                    
-                                </div>
-                                <p *ngIf="registerForm.get('password')?.getError('minlength')"
-                                        style="color: red; font-weight: 400; margin-bottom: 0;">Password must be at
-                                        least 8 characters.</p>
-                            </div>
-
-                            <!-- ============================================RE-PASSWORD================================================== -->
-                            <div class="col-md-6 mb-3">
-                                <label for="rePassword" class="mb-2">Re-Password <span
-                                        class="text-danger">*</span></label>
-                                <input type="password" class="form-control mb-1 py-2" id="rePassword"
-                                    formControlName="rePassword" placeholder="Confirm Your Password" required
-                                    (input)="registerForm.get('rePassword')?.updateValueAndValidity();">
-                                <div *ngIf="registerForm.get('rePassword')?.errors && registerForm.get('rePassword')?.touched"
-                                    style="margin-top: 0;">
-                                    <p *ngIf="registerForm.get('rePassword')?.getError('required')"
-                                        style="color: red; font-weight: 400; margin-bottom: 0;">Re-Password is required.
-                                    </p>
-                                    <p *ngIf="registerForm.get('rePassword')?.getError('minlength')"
-                                        style="color: red; font-weight: 400; margin-bottom: 0;">Re-Password must be at
-                                        least 8 characters.</p>
-                                </div>
-                                <div *ngIf="registerForm.get('rePassword')?.value && registerForm.get('password')?.value !== registerForm.get('rePassword')?.value"
-                                    style="color: red; font-weight: 400; margin-bottom: 0;">
-                                    Passwords do not match.
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <!-- ============================================PHONE NUMBER================================================== -->
-                        <div class="mb-3">
-                            <label for="phone" class="form-label">Phone Number <span
-                                    class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="phone" formControlName="phoneNumber"
-                                placeholder="Enter Your Phone Number" required>
-                            <div
-                                *ngIf="registerForm.get('phoneNumber')?.errors && registerForm.get('phoneNumber')?.touched">
-                                <p *ngIf="registerForm.get('phoneNumber')?.getError('required')"
-                                    style="color: red; font-weight: 400;">Phone Number is required.</p>
-                            </div>
-                            <p *ngIf="registerForm.get('phoneNumber')?.getError('pattern')"
-                                style="color: red; font-weight: 400;">Phone Number must be 11 digits.</p>
-                        </div>
-
-                        <!-- ============================================YOUR ROLE================================================== -->
-                        <div class="mb-4">
-                            <label for="role" class="form-label">Your Role <span class="text-danger">*</span></label>
-                            <div class="position-relative">
-                                <select class="form-control custom-select" id="role" formControlName="role" required>
-                                    <option value="">Select Your Role</option>
-                                    <option value="student">Student</option>
-                                    <option value="teacher">Teacher</option>
-                                    <option value="admin">Admin</option>
-                                </select>
-                                <i class="fa fa-chevron-down position-absolute"
-                                    style="right: 10px; top: 50%; transform: translateY(-50%);"></i>
-                            </div>
-                            <div *ngIf="registerForm.get('role')?.errors && registerForm.get('role')?.touched">
-                                <p *ngIf="registerForm.get('role')?.getError('required')"
-                                    style="color: red; font-weight: 400;">Role is required.</p>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary w-100 mb-3"
-                            [disabled]="registerForm.invalid">Register</button>
-                        <p class="text-center">
-                            Already have an account? <a routerLink="/login" class="login">Login</a>
-                        </p>
-                    </form>
-                </div>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card shadow-sm p-4 bg-white rounded-3">
+            <div class="text-center mb-4">
+              <img src="assets/logo.png" alt="Logo" class="logo mb-3">
+              <h2 class="text-primary">Register</h2>
             </div>
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+              <div class="row">
+                <!-- ============================================FIRST NAME================================================== -->
+                <div class="col-md-6 mb-3">
+                                <label for="first_name" class="form-label">First Name <span
+                                        class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="first_name" formControlName="first_name"
+                    placeholder="Enter Your First Name" required>
+                  <div *ngIf="registerForm.get('first_name')?.errors && registerForm.get('first_name')?.touched">
+                    <p *ngIf="registerForm.get('first_name')?.getError('required')" style="color: red; font-weight: 400;">First Name is required.</p>
+                  </div>
+                  <p *ngIf="registerForm.get('first_name')?.getError('pattern')" style="color: red; font-weight: 400;">Names can't have digits</p>
+                </div>
+  
+                <!-- ============================================LAST NAME================================================== -->
+                <div class="col-md-6 mb-3">
+                  <label for="last_name" class="form-label">Last Name <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="last_name" formControlName="last_name"
+                    placeholder="Enter Your Last Name" required>
+                  <div *ngIf="registerForm.get('last_name')?.errors && registerForm.get('last_name')?.touched">
+                    <p *ngIf="registerForm.get('last_name')?.getError('required')" style="color: red; font-weight: 400;">Last Name is required.</p>
+                  </div>
+                  <p *ngIf="registerForm.get('last_name')?.getError('pattern')" style="color: red; font-weight: 400;">Names can't have digits</p>
+                </div>
+              </div>
+  
+              <!-- ============================================EMAIL================================================== -->
+              <div class="mb-3">
+                <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" id="email" formControlName="email"
+                  placeholder="Enter Your Email" required>
+                <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched">
+                  <p *ngIf="registerForm.get('email')?.getError('required')" style="color: red; font-weight: 400;">Email is required.</p>
+                </div>
+                <p *ngIf="registerForm.get('email')?.getError('pattern')" style="color: red; font-weight: 400;">Invalid Email.</p>
+              </div>
+  
+              <!-- ============================================PASSWORD================================================== -->
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="password" class="mb-2">Password <span class="star text-danger">*</span></label>
+                  <input id="password" class="form-control mb-1 py-2" type="password" placeholder="Enter Your Password" required formControlName="password">
+                  <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched" style="margin-top: 0;">
+                    <p *ngIf="registerForm.get('password')?.getError('required')" style="color: red; font-weight: 400; margin-bottom: 0;">Password is required.</p>
+                  </div>
+                  <p *ngIf="registerForm.get('password')?.getError('minlength')" style="color: red; font-weight: 400; margin-bottom: 0;">Password must be at least 8 characters.</p>
+                </div>
+  
+                <!-- ============================================CONFIRM PASSWORD================================================== -->
+                <div class="col-md-6 mb-3">
+                  <label for="password_confirmation" class="mb-2">Confirm Password <span class="text-danger">*</span></label>
+                  <input type="password" class="form-control mb-1 py-2" id="password_confirmation" formControlName="password_confirmation" placeholder="Confirm Your Password" required (input)="registerForm.get('password_confirmation')?.updateValueAndValidity();">
+                  <div *ngIf="registerForm.get('password_confirmation')?.errors && registerForm.get('password_confirmation')?.touched" style="margin-top: 0;">
+                    <p *ngIf="registerForm.get('password_confirmation')?.getError('required')" style="color: red; font-weight: 400; margin-bottom: 0;">Re-Password is required.</p>
+                  </div>
+                  <div *ngIf="registerForm.get('password_confirmation')?.value && registerForm.get('password')?.value !== registerForm.get('password_confirmation')?.value" style="color: red; font-weight: 400; margin-bottom: 0;">
+                    Passwords do not match.
+                  </div>
+                </div>
+              </div>
+  
+              <!-- ============================================PHONE NUMBER================================================== -->
+              <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="phone" formControlName="phone" placeholder="Enter Your Phone Number" required>
+                <div *ngIf="registerForm.get('phone')?.errors && registerForm.get('phone')?.touched">
+                  <p *ngIf="registerForm.get('phone')?.getError('required')" style="color: red; font-weight: 400;">Phone Number is required.</p>
+                </div>
+                <p *ngIf="registerForm.get('phone')?.getError('pattern')" style="color: red; font-weight: 400;">Phone Number must be 11 digits.</p>
+              </div>
+  
+              <!-- ============================================YOUR ROLE================================================== -->
+              <div class="mb-4">
+                <label for="role" class="form-label">Your Role <span class="text-danger">*</span></label>
+                <div class="position-relative">
+                  <select class="form-control custom-select" id="role" formControlName="role" required>
+                    <option value="">Select Your Role</option>
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher</option>
+                  </select>
+                  <i class="fa fa-chevron-down position-absolute" style="right: 10px; top: 50%; transform: translateY(-50%);"></i>
+                </div>
+                <div *ngIf="registerForm.get('role')?.errors && registerForm.get('role')?.touched">
+                  <p *ngIf="registerForm.get('role')?.getError('required')" style="color: red; font-weight: 400;">Role is required.</p>
+                </div>
+              </div>
+  
+              <button type="submit" class="btn btn-primary w-100 mb-3" [disabled]="registerForm.invalid">Register</button>
+              <p class="text-center">
+                Already have an account? <a routerLink="/login" class="login">Login</a>
+              </p>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
+  
