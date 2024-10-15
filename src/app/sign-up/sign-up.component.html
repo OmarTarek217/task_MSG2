@@ -7,7 +7,7 @@
               <img src="assets/logo.png" alt="Logo" class="logo mb-3">
               <h2 class="text-primary">Register</h2>
             </div>
-            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <form (ngSubmit)="handleSignup(signUpForm)" [formGroup]="signUpForm" >
               <div class="row">
                 <!-- ============================================FIRST NAME================================================== -->
                 <div class="col-md-6 mb-3">
@@ -15,10 +15,10 @@
                                         class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="first_name" formControlName="first_name"
                     placeholder="Enter Your First Name" required>
-                  <div *ngIf="registerForm.get('first_name')?.errors && registerForm.get('first_name')?.touched">
-                    <p *ngIf="registerForm.get('first_name')?.getError('required')" style="color: red; font-weight: 400;">First Name is required.</p>
+                  <div *ngIf="signUpForm.get('first_name')?.errors && signUpForm.get('first_name')?.touched">
+                    <p *ngIf="signUpForm.get('first_name')?.getError('required')" style="color: red; font-weight: 400;">First Name is required.</p>
                   </div>
-                  <p *ngIf="registerForm.get('first_name')?.getError('pattern')" style="color: red; font-weight: 400;">Names can't have digits</p>
+                  <p *ngIf="signUpForm.get('first_name')?.getError('pattern')" style="color: red; font-weight: 400;">Names can't have digits</p>
                 </div>
   
                 <!-- ============================================LAST NAME================================================== -->
@@ -26,10 +26,10 @@
                   <label for="last_name" class="form-label">Last Name <span class="text-danger">*</span></label>
                   <input type="text" class="form-control" id="last_name" formControlName="last_name"
                     placeholder="Enter Your Last Name" required>
-                  <div *ngIf="registerForm.get('last_name')?.errors && registerForm.get('last_name')?.touched">
-                    <p *ngIf="registerForm.get('last_name')?.getError('required')" style="color: red; font-weight: 400;">Last Name is required.</p>
+                  <div *ngIf="signUpForm.get('last_name')?.errors && signUpForm.get('last_name')?.touched">
+                    <p *ngIf="signUpForm.get('last_name')?.getError('required')" style="color: red; font-weight: 400;">Last Name is required.</p>
                   </div>
-                  <p *ngIf="registerForm.get('last_name')?.getError('pattern')" style="color: red; font-weight: 400;">Names can't have digits</p>
+                  <p *ngIf="signUpForm.get('last_name')?.getError('pattern')" style="color: red; font-weight: 400;">Names can't have digits</p>
                 </div>
               </div>
   
@@ -38,31 +38,31 @@
                 <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
                 <input type="email" class="form-control" id="email" formControlName="email"
                   placeholder="Enter Your Email" required>
-                <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched">
-                  <p *ngIf="registerForm.get('email')?.getError('required')" style="color: red; font-weight: 400;">Email is required.</p>
+                <div *ngIf="signUpForm.get('email')?.errors && signUpForm.get('email')?.touched">
+                  <p *ngIf="signUpForm.get('email')?.getError('required')" style="color: red; font-weight: 400;">Email is required.</p>
                 </div>
-                <p *ngIf="registerForm.get('email')?.getError('pattern')" style="color: red; font-weight: 400;">Invalid Email.</p>
+                <p *ngIf="signUpForm.get('email')?.getError('pattern')" style="color: red; font-weight: 400;">Invalid Email.</p>
               </div>
   
               <!-- ============================================PASSWORD================================================== -->
               <div class="row">
                 <div class="col-md-6 mb-3">
                   <label for="password" class="mb-2">Password <span class="star text-danger">*</span></label>
-                  <input id="password" class="form-control mb-1 py-2" type="password" placeholder="Enter Your Password" required formControlName="password">
-                  <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched" style="margin-top: 0;">
-                    <p *ngIf="registerForm.get('password')?.getError('required')" style="color: red; font-weight: 400; margin-bottom: 0;">Password is required.</p>
+                  <input id="password" class="form-control mb-1 py-2" type="text" placeholder="Enter Your Password" required formControlName="password">
+                  <div *ngIf="signUpForm.get('password')?.errors && signUpForm.get('password')?.touched" style="margin-top: 0;">
+                    <p *ngIf="signUpForm.get('password')?.getError('required')" style="color: red; font-weight: 400; margin-bottom: 0;">Password is required.</p>
                   </div>
-                  <p *ngIf="registerForm.get('password')?.getError('minlength')" style="color: red; font-weight: 400; margin-bottom: 0;">Password must be at least 8 characters.</p>
+                  <p *ngIf="signUpForm.get('password')?.getError('minlength')" style="color: red; font-weight: 400; margin-bottom: 0;">Password must be at least 8 characters.</p>
                 </div>
   
                 <!-- ============================================CONFIRM PASSWORD================================================== -->
                 <div class="col-md-6 mb-3">
                   <label for="password_confirmation" class="mb-2">Confirm Password <span class="text-danger">*</span></label>
-                  <input type="password" class="form-control mb-1 py-2" id="password_confirmation" formControlName="password_confirmation" placeholder="Confirm Your Password" required (input)="registerForm.get('password_confirmation')?.updateValueAndValidity();">
-                  <div *ngIf="registerForm.get('password_confirmation')?.errors && registerForm.get('password_confirmation')?.touched" style="margin-top: 0;">
-                    <p *ngIf="registerForm.get('password_confirmation')?.getError('required')" style="color: red; font-weight: 400; margin-bottom: 0;">Re-Password is required.</p>
+                  <input type="text" class="form-control mb-1 py-2" id="password_confirmation" formControlName="password_confirmation" placeholder="Confirm Your Password" required (input)="signUpForm.get('password_confirmation')?.updateValueAndValidity();">
+                  <div *ngIf="signUpForm.get('password_confirmation')?.errors && signUpForm.get('password_confirmation')?.touched" style="margin-top: 0;">
+                    <p *ngIf="signUpForm.get('password_confirmation')?.getError('required')" style="color: red; font-weight: 400; margin-bottom: 0;">Re-Password is required.</p>
                   </div>
-                  <div *ngIf="registerForm.get('password_confirmation')?.value && registerForm.get('password')?.value !== registerForm.get('password_confirmation')?.value" style="color: red; font-weight: 400; margin-bottom: 0;">
+                  <div *ngIf="signUpForm.get('password_confirmation')?.value && signUpForm.get('password')?.value !== signUpForm.get('password_confirmation')?.value" style="color: red; font-weight: 400; margin-bottom: 0;">
                     Passwords do not match.
                   </div>
                 </div>
@@ -72,10 +72,10 @@
               <div class="mb-3">
                 <label for="phone" class="form-label">Phone Number <span class="text-danger">*</span></label>
                 <input type="text" class="form-control" id="phone" formControlName="phone" placeholder="Enter Your Phone Number" required>
-                <div *ngIf="registerForm.get('phone')?.errors && registerForm.get('phone')?.touched">
-                  <p *ngIf="registerForm.get('phone')?.getError('required')" style="color: red; font-weight: 400;">Phone Number is required.</p>
+                <div *ngIf="signUpForm.get('phone')?.errors && signUpForm.get('phone')?.touched">
+                  <p *ngIf="signUpForm.get('phone')?.getError('required')" style="color: red; font-weight: 400;">Phone Number is required.</p>
                 </div>
-                <p *ngIf="registerForm.get('phone')?.getError('pattern')" style="color: red; font-weight: 400;">Phone Number must be 11 digits.</p>
+                <p *ngIf="signUpForm.get('phone')?.getError('pattern')" style="color: red; font-weight: 400;">Phone Number must be 11 digits.</p>
               </div>
   
               <!-- ============================================YOUR ROLE================================================== -->
@@ -89,12 +89,12 @@
                   </select>
                   <i class="fa fa-chevron-down position-absolute" style="right: 10px; top: 50%; transform: translateY(-50%);"></i>
                 </div>
-                <div *ngIf="registerForm.get('role')?.errors && registerForm.get('role')?.touched">
-                  <p *ngIf="registerForm.get('role')?.getError('required')" style="color: red; font-weight: 400;">Role is required.</p>
+                <div *ngIf="signUpForm.get('role')?.errors && signUpForm.get('role')?.touched">
+                  <p *ngIf="signUpForm.get('role')?.getError('required')" style="color: red; font-weight: 400;">Role is required.</p>
                 </div>
               </div>
   
-              <button type="submit" class="btn btn-primary w-100 mb-3" [disabled]="registerForm.invalid">Register</button>
+              <button type="submit" id="id" on class="btn btn-primary w-100 mb-3" [disabled]="signUpForm.invalid">Register</button>
               <p class="text-center">
                 Already have an account? <a routerLink="/login" class="login">Login</a>
               </p>
