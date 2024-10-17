@@ -16,8 +16,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SignUpComponent {
   constructor(private service: AuthenticationService ,private router :Router) { }
-  //nourMostafa235@gmail.com
-  //12345678
+
   errorMessages: any[] = []
   isloading:boolean=false
   signUpForm: FormGroup = new FormGroup({
@@ -30,7 +29,7 @@ export class SignUpComponent {
     email: new FormControl(null, [Validators.required,Validators.email]),
   })
   handleSignup(signupData: FormGroup) {
-    console.log(signupData.valid)
+    console.log(typeof(signupData.value))
     this.isloading=true
     this.service.register(signupData.value).subscribe({
       next: (response) => {
