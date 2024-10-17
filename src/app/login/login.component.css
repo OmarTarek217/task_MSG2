@@ -1,54 +1,103 @@
-:host {
-    display: block;
-    background-color: rgba(128, 128, 128, 0.212); 
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
-.register-link {
-    text-decoration: none;
-    transition: color 0.3s ease, text-decoration 0.3s ease;
-    color: rgb(0, 115, 255); 
-    font-weight: bold; 
-    text-decoration: underline;
+.login-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(115, 115, 115, 0.381);
+    width: 550px;
 }
 
-.register-link:hover {
-    color: #2100fb; 
-    text-decoration: underline; 
+.image-container {
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    width: 80px;
+    height: 50px;
 }
 
 .login {
-    max-width: 40rem;
-    border-radius: 10px;
+    text-align: center;
+    color: rgba(0, 102, 255, 0.967);
+    font-size: xx-large;
+    font-weight: bold;
+    margin-bottom: 2rem;
 }
 
-.logo {
-    width: 90px;
+.items {
+    display: flex;
+    flex-direction: column;
 }
 
-.star {
+.position {
+    font-weight: 500;
+    margin-bottom: 8px;
+    margin-left: 6px;
+    margin-top: 5px;
+}
+
+.red-star {
     color: red;
 }
 
-.btn-primary {
-    background-color: #007bff;
+.input {
+    border: 1px solid rgba(0, 0, 0, 0.111);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    background-color: rgba(0, 119, 255, 0.766);
+    color: white;
+    font-weight: 600;
     border: none;
 }
 
-form {
-    padding: 20px;
-    border-radius: 10px;
+
+p {
+    text-align: center;
+
 }
 
-.form-control {
-    border: 1px solid #ced4da;
-    border-radius: 5px;
+a {
+    color: rgba(0, 0, 255, 0.67);
+    font-weight: bold;
 }
 
-h2.loginword {
-    color: blue;
+.red-error {
+    color: red;
+    text-align: left;
+    margin-left: 0;
 }
 
-p{
-    margin-left: 10px;
-   
+@media (max-width: 550px) {
+    .login-container {
+        width: 100%;
+        padding: 20px;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .button {
+        width: 100%;
+        margin: 0;
+        padding: 10px;
+    }
 }
