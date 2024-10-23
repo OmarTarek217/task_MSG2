@@ -87,6 +87,16 @@ a {
     margin-left: 0;
 }
 
+.green-check {
+    color: green;
+    text-align: left;
+    margin-left: 0;
+}
+
+.button-filled {
+    background-color: rgba(17, 0, 255, 0.9); 
+}
+
 @media (max-width: 550px) {
     .login-container {
         width: 100%;

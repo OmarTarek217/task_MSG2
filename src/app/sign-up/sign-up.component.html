@@ -5,74 +5,158 @@
         <img src="assets/logo.png" alt="Logo">
       </div>
       <div class="register">Register</div>
-
-      <!-- FirstName -->
+      <!-- ==================================================First Name===================================== -->
       <div class="row">
         <div class="flex">
           <label for="first_name" class="name">First Name <span class="red-star">*</span></label>
-          <input type="text" id="first_name" placeholder="Enter Your First Name" formControlName="first_name" required class="input">
-          <div *ngIf="signUpForm.get('first_name')?.errors && signUpForm.get('first_name')?.touched">
-            <p *ngIf="signUpForm.get('first_name')?.getError('required')" class="red-error">First Name is required.</p>
+          <input type="text" id="first_name" placeholder="Enter Your First Name" formControlName="first_name" required
+            class="input">
+          <div *ngIf="signUpForm.get('first_name')?.touched">
+            <p *ngIf="signUpForm.get('first_name')?.errors?.['required']" class="red-error">
+              &#10008; First Name is required.
+            </p>
+            <p *ngIf="signUpForm.get('first_name')?.errors?.['pattern']" class="red-error">
+              &#10008; Names can't have digits.
+            </p>
+            <p *ngIf="signUpForm.get('first_name')?.errors?.['minlength']" class="red-error">
+              &#10008; First Name must be at least 3 characters long.
+            </p>
+
+            <p *ngIf="signUpForm.get('first_name')?.valid && signUpForm.get('first_name')?.touched" class="green-check">
+              &#10004; First Name is valid.
+            </p>
           </div>
-          <p *ngIf="signUpForm.get('first_name')?.getError('pattern')" class="red-error">Names can't have digits.</p>
         </div>
 
-        <!-- LastName -->
+        <!-- ==================================================Last Name===================================== -->
         <div class="flex">
           <label for="last_name" class="name">Last Name <span class="red-star">*</span></label>
-          <input type="text" id="last_name" placeholder="Enter Your Last Name" formControlName="last_name" required class="input">
-          <div *ngIf="signUpForm.get('last_name')?.errors && signUpForm.get('last_name')?.touched">
-            <p *ngIf="signUpForm.get('last_name')?.getError('required')" class="red-error">Last Name is required.</p>
+          <input type="text" id="last_name" placeholder="Enter Your Last Name" formControlName="last_name" required
+            class="input">
+          <div *ngIf="signUpForm.get('last_name')?.touched">
+            <p *ngIf="signUpForm.get('last_name')?.errors?.['required']" class="red-error">
+              &#10008; Last Name is required.
+            </p>
+            <p *ngIf="signUpForm.get('last_name')?.errors?.['pattern']" class="red-error">
+              &#10008; Names can't have digits.
+            </p>
+            <p *ngIf="signUpForm.get('last_name')?.errors?.['minlength']" class="red-error">
+              &#10008; Last Name must be at least 3 characters long.
+            </p>
+
+            <p *ngIf="signUpForm.get('last_name')?.valid && signUpForm.get('last_name')?.touched" class="green-check">
+              &#10004; Last Name is valid.
+            </p>
           </div>
-          <p *ngIf="signUpForm.get('last_name')?.getError('pattern')" class="red-error">Names can't have digits.</p>
         </div>
       </div>
 
-      <!-- Email -->
+      <!-- ==================================================Email===================================== -->
       <div class="flex-columm">
         <label for="email" class="name">Email <span class="red-star">*</span></label>
         <input id="email" type="email" placeholder="Enter Your Email" required formControlName="email" class="input">
+
         <div *ngIf="signUpForm.get('email')?.errors && signUpForm.get('email')?.touched">
-          <p *ngIf="signUpForm.get('email')?.getError('required')" class="red-error">Email is required.</p>
+          <p *ngIf="signUpForm.get('email')?.getError('required')" class="red-error">
+            &#10008; Email is required.
+          </p>
+          <p *ngIf="signUpForm.get('email')?.getError('pattern')" class="red-error">
+            &#10008; Invalid email format.
+          </p>
         </div>
-        <p *ngIf="signUpForm.get('email')?.getError('pattern')" class="red-error">Invalid Email.</p>
+
+        <p *ngIf="signUpForm.get('email')?.valid && signUpForm.get('email')?.touched" class="green-check">
+          &#10004; Email is valid.
+        </p>
       </div>
 
-      <!-- Password -->
+      <!-- ==================================================Password===================================== -->
       <div class="row">
         <div class="flex">
           <label for="password" class="name">Password <span class="red-star">*</span></label>
-          <input type="password" id="password" placeholder="Enter Your Password" formControlName="password" required class="input">
-          <div *ngIf="signUpForm.get('password')?.errors && signUpForm.get('password')?.touched">
-            <p *ngIf="signUpForm.get('password')?.getError('required')" class="red-error">Password is required.</p>
+          <input type="password" id="password" placeholder="Enter Your Password" formControlName="password" required
+            class="input">
+
+          <div *ngIf="signUpForm.get('password')?.touched">
+            <p *ngIf="signUpForm.get('password')?.errors?.['required']" class="red-error">
+              &#10008; Password is required.
+            </p>
+
+            <div *ngIf="signUpForm.get('password')?.errors?. ['pattern']">
+              <p
+                [ngClass]="{'green-check': signUpForm.get('password')?.value?.length >= 8, 'red-error': signUpForm.get('password')?.touched && signUpForm.get('password')?.value?.length < 8}">
+                {{ signUpForm.get('password')?.value?.length >= 8 ? '&#10004;' : '&#10008;' }} Password must be at least
+                8 characters.
+              </p>
+
+              <p [ngClass]="{'green-check': hasUpperCase(), 'red-error': !hasUpperCase()}">
+                {{ hasUpperCase() ? '&#10004;' : '&#10008;' }} Password must include at least one uppercase letter.
+              </p>
+
+              <p [ngClass]="{'green-check': hasLowerCase(), 'red-error': !hasLowerCase()}">
+                {{ hasLowerCase() ? '&#10004;' : '&#10008;' }} Password must include at least one lowercase letter.
+              </p>
+
+              <p [ngClass]="{'green-check': hasNumber(), 'red-error': !hasNumber()}">
+                {{ hasNumber() ? '&#10004;' : '&#10008;' }} Password must include at least one number.
+              </p>
+
+              <p [ngClass]="{'green-check': hasSpecialCharacter(), 'red-error': !hasSpecialCharacter()}">
+                {{ hasSpecialCharacter() ? '&#10004;' : '&#10008;' }} Password must include at least one special
+                character.
+              </p>
+            </div>
+
+            <p *ngIf="signUpForm.get('password')?.valid && signUpForm.get('password')?.touched" class="green-check">
+              &#10004; Password is valid.
+            </p>
           </div>
-          <p *ngIf="signUpForm.get('password')?.getError('minlength')" class="red-error">Password must be at least 8 characters.</p>
         </div>
 
-        <!-- Confirm Password -->
+        <!-- ==================================================Confirm Password===================================== -->
         <div class="flex">
           <label for="password_confirmation" class="name">Confirm Password <span class="red-star">*</span></label>
-          <input type="password" id="password_confirmation" placeholder="Confirm Your Password" formControlName="password_confirmation" required class="input">
-          <div *ngIf="signUpForm.get('password_confirmation')?.errors && signUpForm.get('password_confirmation')?.touched">
-            <p *ngIf="signUpForm.get('password_confirmation')?.getError('required')" class="red-error">Re-Password is required.</p>
+          <input type="password" id="password_confirmation" placeholder="Confirm Your Password"
+            formControlName="password_confirmation" required class="input">
+          <div
+            *ngIf="signUpForm.get('password_confirmation')?.errors && signUpForm.get('password_confirmation')?.touched">
+            <p *ngIf="signUpForm.get('password_confirmation')?.getError('required')" class="red-error">
+              &#10008; Re-Password is required.
+            </p>
           </div>
-          <div *ngIf="signUpForm.get('password_confirmation')?.value && signUpForm.get('password')?.value !== signUpForm.get('password_confirmation')?.value" class="red-error">
-            Passwords do not match.
+          <div
+            *ngIf="signUpForm.get('password_confirmation')?.value && signUpForm.get('password')?.value !== signUpForm.get('password_confirmation')?.value"
+            class="red-error">
+            &#10008; Passwords do not match.
           </div>
+          <p *ngIf="signUpForm.get('password_confirmation')?.valid && signUpForm.get('password')?.value === signUpForm.get('password_confirmation')?.value && signUpForm.get('password_confirmation')?.touched"
+            class="green-check">
+            &#10004; Passwords match.
+          </p>
         </div>
       </div>
 
-      <!-- Phone -->
+      <!-- ==================================================Phone Number===================================== -->
       <div class="flex-columm">
         <label for="phone" class="name">Phone Number <span class="red-star">*</span></label>
-        <input id="phone" type="text" placeholder="Enter Your Phone Number" required formControlName="phone" class="input">
-        <div *ngIf="signUpForm.get('phone')?.errors && signUpForm.get('phone')?.touched">
-          <p *ngIf="signUpForm.get('phone')?.getError('required')" class="red-error">Phone Number is required.</p>
+        <input id="phone" type="text" placeholder="Enter Your Phone Number" required formControlName="phone"
+          class="input">
+
+        <div *ngIf="signUpForm.get('phone')?.touched">
+          <p *ngIf="signUpForm.get('phone')?.errors?.['required']" class="red-error">
+            &#10008; Phone Number is required.
+          </p>
+
+          <p *ngIf="signUpForm.get('phone')?.errors?.['pattern']" class="red-error">
+            &#10008; Phone Number must be 11 digits and start with 01.
+          </p>
+          <p *ngIf="signUpForm.get('phone')?.valid && signUpForm.get('phone')?.touched" class="green-check">
+            &#10004; Phone Number is valid.
+          </p>
         </div>
-        <p *ngIf="signUpForm.get('phone')?.getError('pattern')" class="red-error">Phone Number must be 11 digits.</p>
       </div>
 
-      <!-- Role -->
+      <!-- ==================================================Role===================================== -->
       <div class="flex-columm">
         <label for="role" class="your-role">Your Role <span class="red-star">*</span></label>
         <select class="input" id="role" formControlName="role" required>
@@ -80,12 +164,17 @@
           <option value="student">Student</option>
           <option value="teacher">Teacher</option>
         </select>
-        <div *ngIf="signUpForm.get('role')?.errors && signUpForm.get('role')?.touched">
-          <p *ngIf="signUpForm.get('role')?.getError('required')" class="red-error">Role is required.</p>
+        <div *ngIf="signUpForm.get('role')?.touched">
+          <p *ngIf="signUpForm.get('role')?.errors?.['required']" class="red-error">
+            &#10008; Role is required.
+          </p>
         </div>
       </div>
-
-      <button type="submit" class="button" [disabled]="signUpForm.invalid">Register</button>
+      <!-- ================================================================================================== -->
+      <button type="submit" [disabled]="signUpForm.invalid"
+        [ngClass]="{'button': true, 'button-filled': signUpForm.valid}">
+        Register
+      </button>
       <p>Already have an account? <a routerLink="/login">Login</a></p>
     </div>
   </form>

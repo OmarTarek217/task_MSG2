@@ -14,8 +14,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private service: AuthenticationService, private route: ActivatedRoute, private router: Router) {
     this.loginForm = new FormGroup({
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
+      email: new FormControl(null, [Validators.required,Validators.pattern(/^[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/)]),
+      password: new FormControl(null, [ Validators.required,Validators.minLength(8),  Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/)]),
     });
   }
 
@@ -36,11 +36,10 @@ export class LoginComponent implements OnInit {
         next: (response) => {
           console.log(response);
           if (response.data.access_token && response.message === 'User logged in successfully.') {
-            // Save the token and user role
+            
             this.service.saveToken(response.data.access_token);
-            this.service.saveUserRole(response.data.user.role); // Assuming the role is returned here
-  
-            // Navigate to the teacher dashboard
+            this.service.saveUserRole(response.data.user.role);
+            
             this.router.navigate(['/teacher-dashboard']);
             Swal.fire({
               icon: 'success',

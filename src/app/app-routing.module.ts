@@ -11,7 +11,7 @@ import { CalendarComponent } from './sidebar-item/calendar/calendar.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'sign-up', component: SignUpComponent },
+  { path: 'signup', component: SignUpComponent },
   {
     path: 'teacher-dashboard',
     component: TeacherDashboardComponent,
