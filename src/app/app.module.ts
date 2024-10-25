@@ -15,6 +15,8 @@ import { HomeComponent } from './sidebar-item/home/home.component';
 import { ClassesComponent } from './sidebar-item/classes/classes.component';
 import { CoursesComponent } from './sidebar-item/courses/courses.component';
 import { CalendarComponent } from './sidebar-item/calendar/calendar.component';
+import { RightSidebarComponent } from './right-sidebar/right-sidebar.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { CalendarComponent } from './sidebar-item/calendar/calendar.component';
     ClassesComponent,
     CoursesComponent,
     CalendarComponent,
+    RightSidebarComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,

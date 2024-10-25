@@ -1,0 +1,16 @@
+:host {
+    display: flex; 
+}
+
+app-sidebar {
+    background-color: #fff; 
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); 
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 10px; 
+    background-color: rgb(233, 236, 240);
+}
+
+
