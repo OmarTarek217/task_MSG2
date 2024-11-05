@@ -1,33 +1,39 @@
 .right-sidebar {
-    width: 300px;
-    max-width: 100%;
-    background-color: #fff;
+    background: rgba(255, 255, 255, 1);
     padding: 20px;
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-    height: calc(100vh - 40px);
+    height: 100%;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    height: 100%;
 }
 
- .profile-picture {
+.profile-picture {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    margin-right: 10px;
 }
 
- .user-info {
+.user-info {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.test {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
 }
 
 .user-details p {
     font-weight: bold;
     margin: 0;
     font-size: 1.2em;
+    ;
 }
 
 .user-details span {
@@ -35,24 +41,54 @@
     color: #888;
 }
 
+.settings {
+    border: none;
+    background: none;
+    width: 24px;
+    height: 24px;
+    color: rgba(5, 106, 255, 1);
+    font-size: x-large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.notification {
+    width: 24px;
+    height: 24px;
+    color: rgba(5, 106, 255, 1);
+    font-size: x-large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============================================================================================================================================= */
 .my-progress {
     margin-bottom: 20px;
+    width: 90%;
 }
 
 .progress-header {
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    gap: 30px;
+    width: 95%;
 }
 
 .calendar {
     background-color: #f9f9f9;
     border-radius: 10px;
-    padding: 10px;
+    padding: 20px;
+    padding-right: 31px;
     margin-top: 10px;
+    margin-left: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: max-content;
+    width: 100%;
+    margin-bottom: 4rem;
 }
 
 .days {
@@ -72,12 +108,12 @@
 
 .date {
     padding: 8px;
-    border-radius: 8px; 
+    border-radius: 8px;
     margin: 2px;
-    margin-right: 1px;
     transition: background-color 0.3s, transform 0.2s;
     cursor: pointer;
-    width: max-content;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .date:hover {
@@ -99,29 +135,117 @@
     color: #fff;
 }
 
-
+/* ============================================================================================================================================= */
 .upcoming-activities h3 {
     font-weight: bold;
-    margin-bottom: 10px;
     font-size: 1.2em;
+    margin-top: 60px;
+    margin-bottom: 30px;
 }
 
-.upcoming-activities ul {
-    list-style: none;
-    padding: 0;
-}
-
-.upcoming-activities ul li {
-    background-color: #f3f4f6;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 10px;
+.activities {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background-color 0.3s;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%; 
 }
 
-.upcoming-activities ul li:hover {
-    background-color: #e2e8f0;
+.bottom-padding{
+    padding-bottom: 8px;
+    color: #0366d6;
+    cursor: pointer;
+}
+
+.act1 {
+    width: 313px; 
+    height: max-content;
+    border-radius: 20px;
+    background: rgba(240, 247, 255, 1);
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    padding: 10px;
+}
+
+.act2 {
+    width: 313px;
+    height: max-content;
+    border-radius: 20px;
+    background: rgba(255, 240, 247, 1); 
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    padding: 10px;
+}
+
+.act3 {
+    width: 313px;
+    height: max-content;
+    border-radius: 20px;
+    background: rgba(240, 255, 243, 1); 
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    padding: 10px;
+}
+
+.act4 {
+    width: 313px; 
+    height: max-content;
+    border-radius: 20px;
+    background: rgba(255, 245, 240, 1); 
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+}
+
+.circle-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    color: white;
+    border-radius: 50%;
+    margin-right: 10px;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+.circle-icon.blue { background-color: #0366d6; }
+.circle-icon.pink { background: rgba(255, 29, 134, 1);} 
+.circle-icon.green {background: rgba(22, 208, 59, 1);}
+.circle-icon.orange { background: rgba(255, 126, 62, 1);}
+
+.act-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.act-details h5 {
+    margin: 0;
+    font-weight: bold;
+}
+
+.act-details span {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    color: rgba(0, 119, 255, 1); 
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px; 
+}
+
+.fa-chevron-right {
+    color: rgba(0, 119, 255, 1);
+    font-size: 1.2em;
+    margin-left: 10px; 
+    align-self: center;
 }

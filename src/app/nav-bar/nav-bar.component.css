@@ -5,26 +5,26 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
 }
 
 .dashboard-header h1 {
-    color: #0366d6;
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 37.5px;
+    text-align: left;
+    color: #056AFF;
 }
 
-.search-bar {
-    flex-grow: 1;
-    margin: 0 20px;
-    display: flex;
-    justify-content: center;
-}
+
 
 .search-bar input {
     width: 400px;
     padding: 12px;
     border-radius: 50px;
     border: 1px solid #d1d5db;
+    box-shadow: 3px 4px 16px 0px #00000040;
+    text-align: center;
 }
 
 
@@ -34,7 +34,7 @@
     display: inline-block;
     width: 34px;
     height: 20px;
-    margin: 0 10px; 
+    margin: 0 10px;
 }
 
 .switch input {
@@ -52,7 +52,7 @@
     bottom: 0;
     background-color: #ccc;
     transition: .4s;
-    border-radius: 20px; 
+    border-radius: 20px;
 }
 
 .slider:before {
@@ -63,14 +63,69 @@
     left: 2px;
     bottom: 2px;
     background-color: white;
-    border-radius: 50%; 
+    border-radius: 50%;
     transition: 0.4s;
 }
 
-input:checked + .slider {
+input:checked+.slider {
     background-color: #2196F3;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
     transform: translateX(14px);
 }
+
+
+
+@media (max-width: 981px) {
+
+    .search-bar {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-left: 30px;
+    }
+
+    .slider {
+        display: none;
+    }
+
+    .dashboard-header h1,
+    .theme-toggle .fa-sun,
+    .theme-toggle .fa-moon {
+        display: none;
+    }
+}
+
+@media (max-width: 730px) {
+
+    .search-bar {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-left: 30px;
+    }
+
+    .search-bar input {
+        text-align: center;
+        width: 350px;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .slider {
+        display: none;
+    }
+
+    .dashboard-header h1,
+    .theme-toggle .fa-sun,
+    .theme-toggle .fa-moon {
+        display: none;
+    }
+
+
+}
+
+
+
+

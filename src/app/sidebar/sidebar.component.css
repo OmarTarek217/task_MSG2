@@ -1,54 +1,197 @@
 .sidebar {
-  width: 250px;
-  background-color:   #ffffff;
+  width: 277px;
+  background: rgba(247, 248, 250, 0.629);
   padding: 20px;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  padding-top: 60px;
+  height: 100%;
+  min-height: 90vh;
+  overflow: hidden;
 }
 
 .sidebar h2 {
   color: #3a6ff7;
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 40px;
+  font-family: Logirent;
+  font-size: 32px;
+  font-weight: 700;
+  padding: 20px;
 }
 
-.sidebar nav ul {
+.nav {
+  display: flex;
+  height: 960px;
+  justify-content: space-around;
+  margin-top: 60px;
+}
+
+.nav ul {
   list-style-type: none;
   padding: 0;
+  font-weight: bold;
+  font-size: x-large;
+  font-family: Roboto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.sidebar nav ul li {
-  margin-bottom: 20px;
-}
-
-.sidebar nav ul li a {
+.nav ul li a {
   text-decoration: none;
-  font-size: 18px;
-  color: #3a6ff7;
-  padding: 10px;
-  display: block;
-  border-radius: 10px;
-  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 15px;
+  justify-content: flex-start;
 }
 
-.sidebar nav ul li a:hover {
-  background-color: #56565771;
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 20rem;
+  height: 63px;
+  width: 260px;
+  margin-left: 20px;
+  padding-left: 30px;
+  transition: transform 0.2s ease;
+  
+}
+
+.classes {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 20rem;
+  height: 63px;
+  width: 260px;
+  margin-left: 20px;
+  padding-left: 30px;
+  transition: transform 0.2s ease;
+}
+
+.courses {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 20rem;
+  height: 63px;
+  width: 260px;
+  margin-left: 20px;
+  padding-left: 30px;
+  transition: transform 0.2s ease;
+}
+
+.calendar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 20rem;
+  height: 63px;
+  width: 260px;
+  margin-left: 20px;
+  padding-left: 30px;
+  transition: transform 0.2s ease;
+}
+
+.home:hover, .home.active-link {
+  background: rgb(233, 236, 240);
+  transform: scale(1.10);
+}
+
+.classes:hover, .classes.active-link {
+  background: rgb(233, 236, 240);
+
+}
+
+.courses:hover, .courses.active-link {
+  background: rgb(233, 236, 240);
+  transform: scale(1.10);
+
+}
+
+.calendar:hover, .calendar.active-link {
+  background: rgb(233, 236, 240);
+  transform: scale(1.10);
 }
 
 .logout-btn {
-  margin-top: auto;
-  padding: 10px 20px;
-  background-color: #eef3ff;
-  border: none;
-  border-radius: 10px;
-  font-size: 18px;
+  align-self: center;
+  width: 157px;
+  height: 60px;
+  border-radius: 20px;
+  box-shadow: 0px 4px 34.17px 0px rgba(0, 0, 0, 0.25);
+  background: rgba(233, 236, 240, 1);
+  border: 1px solid rgba(255, 255, 255, 0);
   color: #3a6ff7;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  font-weight: 600;
+  font-size: larger;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 15px;
+  justify-content:center;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .logout-btn:hover {
-  background-color: #dce7ff;
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+
+
+@media (max-width: 1400px)  {
+  .sidebar {
+      width: 220px;
+      padding: 20px;
+      height: 100%;
+  }
+
+  .sidebar h2 {
+      font-size: 24px;
+    padding-top: 20px;
+    padding-left: 10px;
+
+  }
+
+  .nav ul li a {
+      font-size: medium;
+      padding: 5px;
+  }
+
+  .home, .classes, .courses, .calendar {
+      height: 50px;
+      width: 220px;
+      padding-left: 15px;
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .sidebar {
+      width: 160px;
+      padding: 10px;
+  }
+
+  .sidebar h2 {
+    font-size: 20px;
+  padding-top: 20px;
+  padding-left: 10px;
+
+}
+
+  .nav ul li a {
+      gap: 5px;
+      font-size: small;
+      padding: 3px;
+      
+  }
+
+  .home, .classes, .courses, .calendar {
+      height: 40px;
+      width: 200px;
+      padding-left: 10px;
+  }
 }

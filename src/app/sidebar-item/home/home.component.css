@@ -1,64 +1,387 @@
 
-.main-content {
+
+
+.box-container {
     display: flex;
-    flex-grow: 1;
-    justify-content: space-between;
-    padding: 20px;
-    background-color: rgb(233, 236, 240);
+    width: 100%;
+    height: 151px;
+    gap: 14px;
+    margin: 15px;
+    margin-top: 20px;
+    justify-content: space-evenly;
 }
 
-.content {
-    flex-grow: 1;
+.box1 {
+    display: flex;
+    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
+    width: 395px;
+    height: 151px;
+    border-radius: 20px;
+    opacity: 1;
+    background: linear-gradient(250.87deg, #0459C4 21.71%, #B3E5FC 147.67%);
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+    transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.dashboard-cards {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+.box1:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
 }
 
-.card {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    flex-basis: 30%;
+.box2 {
     display: flex;
-    justify-content: space-between;
+    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
+    width: 395px;
+    height: 151px;
+    gap: 0px;
+    border-radius: 20px;
+    opacity: 0px;
+    background: linear-gradient(250.87deg, #0077AA 21.71%, #E9ECF0 147.67%);
+    justify-content: center;
+    align-items: center;
+    color: white;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.box2:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.box3 {
+    display: flex;
+    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
+    width: 395px;
+    height: 151px;
+    gap: 0px;
+    border-radius: 20px;
+    opacity: 0px;
+    background: linear-gradient(249.65deg, #C94CB2 36.47%, #E9ECF0 144.38%);
+    justify-content: center;
+    align-items: center;
+    color: white;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.box3:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.cards {
+    display: flex;
+    gap: 32px;
+    width: 270px;
+    height: 70px;
+    opacity: 0px;
+    justify-content: space-around;
     align-items: center;
 }
 
-.card.blue {
-    background-color: #0366d6;
-    color: white;
+.icon-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 12px 4px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(226.76deg, #196ACB 16.55%, #E9ECF0 109.49%);
 }
 
-.card.teal {
-    background-color: #0eaaa8;
-    color: white;
+.icon-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 12px 4px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(226.76deg, #0077AA 16.55%, #C8DBF3 109.49%);
 }
 
-.card.pink {
-    background-color: #f55c94;
-    color: white;
+.icon-large {
+    font-size: 24px;
 }
 
-.statistic-chart,
+.icon-3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 12px 4px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(226.76deg, #C94CB2 16.55%, #E9ECF0 109.49%);
+}
+
+.title {
+    width: 138px;
+    height: 70px;
+    opacity: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title h5 {
+    font-weight: 700;
+    width: 55px;
+    height: 28px;
+    font-size: 24px;
+}
+
+.title p {
+    width: max-content;
+    height: 19px;
+}
+
+.main-dashboard {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 40px;
+    gap: 25px;
+    width: 100%;
+}
+
+.second-dashboard {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    gap: 25px;
+    width: 100%;
+}
+
+.statistics {
+    width: 727px;
+    height: 408px;
+    border-radius: 20px 0px 0px 0px;
+    opacity: 0px;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 4px 12px 0px rgba(22, 22, 22, 0.25);
+    border: 1px solid rgba(240, 240, 240, 1);
+}
+
 .your-uploads {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    width: 453px;
+    height: 413px;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 4px 12px 0px rgba(22, 22, 22, 0.25);
+    border-radius: 20px;
+    border: 1px solid rgba(240, 240, 240, 1);
 }
 
-.your-uploads ul {
-    list-style: none;
+.top-students {
+    width: 764px;
+    height: 327px;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 4px 12px 0px rgba(22, 22, 22, 0.25);
+    border-radius: 20px;
+    border: 1px solid rgba(240, 240, 240, 1);
 }
 
-.your-uploads li {
-    margin-bottom: 10px;
+.to-do-list {
+    width: 455px;
+    height: 327px;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 4px 12px 0px rgba(22, 22, 22, 0.25);
+    border-radius: 20px;
+    border: 1px solid rgba(240, 240, 240, 1);
+}
+
+.title2 {
     display: flex;
     justify-content: space-between;
+    width: 100%;
+    padding: 20px 30px;
     align-items: center;
 }
+
+.title2 h5 {
+    font-size: x-large;
+}
+
+.title2 p {
+    padding-top: 5px;
+    font-size: medium;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar input {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    box-shadow: 3px 4px 16px 0px #00000040;
+    background: rgba(233, 236, 240, 1);
+}
+
+.checkbox-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.checkbox-item input {
+    width: 19px;
+    height: 19px;
+    background: rgba(234, 235, 237, 1);
+}
+
+.checkbox-item p {
+    display: flex;
+    font-weight: bold;
+    margin: 0;
+}
+
+
+
+
+
+@media (max-width: 990px) {
+    .box-container {
+        flex-direction: column;
+        width: 100%;
+        margin: auto;
+        height: max-content;
+    }
+
+    .box1,
+    .box2,
+    .box3 {
+        width: 100%;
+        margin-bottom: 10px;
+        height: 200px;
+    }
+
+    .icon-1,
+    .icon-2,
+    .icon-3 {
+        font-size: 15px;
+    }
+
+    .main-dashboard {
+        margin-top: 2rem;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .second-dashboard {
+        padding: 20px;
+        width: 100%;
+    }
+
+    .main-dashboard > div,
+    .second-dashboard > div {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .to-do-list {
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .to-do-list p {
+        margin: 0;
+        padding: 10px 0;
+        overflow-wrap: break-word;
+    }
+
+    @media (max-width: 700px) {
+        .box-container {
+            flex-direction: column;
+            width: 100%;
+            margin: auto;
+            height: max-content;
+        }
+    
+        .box1,
+        .box2,
+        .box3 {
+            width: 100%;
+            margin-bottom: 10px;
+            height: max-content;
+        }
+    
+        .icon-1,
+        .icon-2,
+        .icon-3 {
+            font-size: 15px;
+        }
+    }
+    
+}
+
+@media (min-width: 2055px) {
+    .box-container {
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        gap: 30px;
+    }
+
+    .box1,
+    .box2,
+    .box3 {
+        width: 32%;
+        height: 160px;
+        margin: 0;
+    }
+
+    .main-dashboard {
+        margin-top: 30px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .second-dashboard {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 30px;
+    }
+
+    .main-dashboard > div,
+    .second-dashboard > div {
+        margin-bottom: 30px;
+        width: 48%;
+    }
+
+    .statistics,
+    .your-uploads,
+    .top-students,
+    .to-do-list {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 15px;
+        padding: 25px;
+        box-sizing: border-box;
+    }
+
+    .title2 {
+        padding: 25px;
+    }
+    
+}
+

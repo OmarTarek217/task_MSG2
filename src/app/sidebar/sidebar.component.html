@@ -1,12 +1,30 @@
 <div class="sidebar">
-  <h2>SMARTED</h2>
-  <nav>
+  <h2><i class="fa-brands fa-sitrox" style="color: #056AFF;"></i>MARTED</h2>
+  <nav class="nav">
     <ul>
-      <li><a routerLink="home">Home</a></li>
-      <li><a routerLink="classes">Classes</a></li>
-      <li><a routerLink="courses">Courses</a></li>
-      <li><a routerLink="calendar">Calendar</a></li>
+      <li class="home" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+        <a routerLink="home">
+          <i class="fa-solid fa-shapes" style="color: rgba(5, 106, 255, 1); font-size: 20px;"></i> Home
+        </a>
+      </li>
+      <li class="classes" routerLinkActive="active-link">
+        <a routerLink="classes">
+          <i class="fa-solid fa-graduation-cap" style="color:rgba(5, 106, 255, 1)"></i> Classes
+        </a>
+      </li>
+      <li class="courses" routerLinkActive="active-link">
+        <a routerLink="courses">
+          <i class="fa-solid fa-book" style="color:rgba(5, 106, 255, 1)"></i> Courses
+        </a>
+      </li>
+      <li class="calendar" routerLinkActive="active-link">
+        <a routerLink="calendar">
+          <i class="fa-solid fa-calendar-days" style="color:rgba(5, 106, 255, 1)"></i> Calendar
+        </a>
+      </li>
     </ul>
+    <button class="logout-btn" (click)="logout()">
+      <i class="fa-solid fa-right-from-bracket" style="color:rgba(5, 106, 255, 1)"></i> Logout
+    </button>
   </nav>
-  <button class="logout-btn" (click)="logout()">Logout</button>
 </div>
