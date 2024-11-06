@@ -26,14 +26,16 @@
     gap: 20px;
     justify-content: center;
     align-items: center;
-    padding-left: 20px;
+    padding: 20px;
+    flex-direction: row;
 }
+
 
 .user-details p {
     font-weight: bold;
     margin: 0;
     font-size: 1.2em;
-    ;
+    width: max-content;
 }
 
 .user-details span {
@@ -147,22 +149,22 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
-    width: 100%; 
+    width: 100%;
 }
 
-.bottom-padding{
+.bottom-padding {
     padding-bottom: 8px;
     color: #0366d6;
     cursor: pointer;
 }
 
 .act1 {
-    width: 313px; 
+    width: 313px;
     height: max-content;
     border-radius: 20px;
     background: rgba(240, 247, 255, 1);
     display: flex;
-    justify-content: flex-start; 
+    justify-content: flex-start;
     align-items: center;
     padding: 10px;
 }
@@ -171,9 +173,9 @@
     width: 313px;
     height: max-content;
     border-radius: 20px;
-    background: rgba(255, 240, 247, 1); 
+    background: rgba(255, 240, 247, 1);
     display: flex;
-    justify-content: flex-start; 
+    justify-content: flex-start;
     align-items: center;
     padding: 10px;
 }
@@ -182,18 +184,18 @@
     width: 313px;
     height: max-content;
     border-radius: 20px;
-    background: rgba(240, 255, 243, 1); 
+    background: rgba(240, 255, 243, 1);
     display: flex;
-    justify-content: flex-start; 
+    justify-content: flex-start;
     align-items: center;
     padding: 10px;
 }
 
 .act4 {
-    width: 313px; 
+    width: 313px;
     height: max-content;
     border-radius: 20px;
-    background: rgba(255, 245, 240, 1); 
+    background: rgba(255, 245, 240, 1);
     display: flex;
     justify-content: flex-start;
     padding: 10px;
@@ -212,10 +214,21 @@
     flex-grow: 0;
 }
 
-.circle-icon.blue { background-color: #0366d6; }
-.circle-icon.pink { background: rgba(255, 29, 134, 1);} 
-.circle-icon.green {background: rgba(22, 208, 59, 1);}
-.circle-icon.orange { background: rgba(255, 126, 62, 1);}
+.circle-icon.blue {
+    background-color: #0366d6;
+}
+
+.circle-icon.pink {
+    background: rgba(255, 29, 134, 1);
+}
+
+.circle-icon.green {
+    background: rgba(22, 208, 59, 1);
+}
+
+.circle-icon.orange {
+    background: rgba(255, 126, 62, 1);
+}
 
 .act-details {
     flex-grow: 1;
@@ -236,16 +249,16 @@
 .dot {
     width: 6px;
     height: 6px;
-    color: rgba(0, 119, 255, 1); 
+    color: rgba(0, 119, 255, 1);
     border-radius: 50%;
     display: inline-block;
     vertical-align: middle;
-    margin: 0 5px; 
+    margin: 0 5px;
 }
 
 .fa-chevron-right {
     color: rgba(0, 119, 255, 1);
     font-size: 1.2em;
-    margin-left: 10px; 
+    margin-left: 10px;
     align-self: center;
 }

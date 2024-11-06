@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 
@@ -24,7 +24,6 @@ export class AuthenticationService {
 
   register(registerData: any): Observable<any> {
     return this.http.post('http://127.0.0.1:8000/api/register', registerData);
-    
   }
 
   saveToken(token: string): void {
@@ -41,6 +40,23 @@ export class AuthenticationService {
 
   getUserRole(): string | null {
     return localStorage.getItem(this.userRoleKey);
+  }
+
+  updateProfile(profileData: any): Observable<any> {
+    const token = this.getToken();
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.put('http://127.0.0.1:8000/api/user/update', profileData, { headers });
+  }
+
+  getCurrentUser(): Observable<any> {
+    const token = this.getToken();
+    if (!token) {
+      throw new Error('No token found. User is not authenticated.');
+    }
+
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    
+    return this.http.get('http://127.0.0.1:8000/api/user', { headers });
   }
 
   logout(): void {
