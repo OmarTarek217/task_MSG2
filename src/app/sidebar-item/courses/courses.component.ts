@@ -14,14 +14,14 @@ export class CoursesComponent implements OnInit {
 
   constructor(private teacherFeaturesService: TeacherFeaturesService, private fb: FormBuilder) {
     this.newCourseForm = this.fb.group({
-      name: ['', Validators.required],
-      duration: ['', Validators.required],
-      level: ['', Validators.required],
-      semester: ['', Validators.required],
-      description: ['', Validators.required]
+      name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z\s]+$/)]],
+      duration: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
+      level: ['', [Validators.required, Validators.pattern(/^[1-3]$/)]], 
+      semester: ['', [Validators.required, Validators.pattern(/^[1-3]$/)]], 
+      description: ['', [Validators.required, Validators.minLength(10)]]
     });
   }
-
+  
 
 
   ngOnInit(): void {

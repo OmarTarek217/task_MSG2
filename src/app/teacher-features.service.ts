@@ -24,6 +24,6 @@ export class TeacherFeaturesService {
   }
 
   deleteCourse(id: number): Observable<void> {
-    return this.http.delete<void>(`http://127.0.0.1:8000/api/courses/${id}`, { headers: this.headers });
+    return this.http.delete<void>(`http://127.0.0.1:8000/api/delete/course/${id}`, { headers: this.headers });
   }
 }
